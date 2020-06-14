@@ -60,17 +60,27 @@ public class PruebaRecursividad {
         System.out.println("******palabra sin espacios*****");
         System.out.println(recu.espacios("anita lava la tina"));
 
-        int j[] = {1, 2, 3, 4};
+        int j[] = {4, 1, 3, 2};
+        
         recu.invertir(j);
 
+        try {
+            recu.burbuja(j);
+        } catch (Exception e) {
+            System.out.println("que paso menor?");
+        }
+
         for (int i = 0; i < j.length; i++) {
-            System.out.println("vector invertido:  " + j[i]);
+            System.out.println("vector ordenado:  " + j[i]);
 
         }
         System.out.println(recu.vocales("yaider"));
 
-        System.out.println("recursividad: "+recu.sumatoriafact(4));
+        System.out.println("recursividad: " + recu.sumatoriafact(4));
+
+        System.out.println("fibonacci: " + recu.fibonacci(3));
         
-        System.out.println("fibonacci: "+recu.fibonacci(3));
+         System.out.println("que valores coinciden: " + recu.coincide(j));
+
     }
 }

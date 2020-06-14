@@ -177,11 +177,11 @@ public class Recursividad {
 
 //------- invertir datos de un vector--------------
     private static int[] invertir(int[] vector, int i) {
-        int aux=0;
-        if (i < vector.length/2) {
-            aux=vector[i];
-            vector[i]=vector[vector.length-(i+1)];
-            vector[vector.length-(i+1)]=aux;
+        int aux = 0;
+        if (i < vector.length / 2) {
+            aux = vector[i];
+            vector[i] = vector[vector.length - (i + 1)];
+            vector[vector.length - (i + 1)] = aux;
             return invertir(vector, i + 1);
         } else {
             return vector;
@@ -192,7 +192,6 @@ public class Recursividad {
     public static int[] invertir(int vector[]) {
         return invertir(vector, 0);
     }
-    //-----------------------------------------------//
 
     //-------- imprmir cadena sin espacios-----------------
     private static String espacios(String cadena, int i, String s) {
@@ -236,7 +235,6 @@ public class Recursividad {
     }
     //------------------------------------------------------------//
 
-    
     //--------verificar cuantas vocales tiene una palabra--------
     public static int vocales(String palabra) {
         return vocales(palabra, 0);
@@ -255,29 +253,64 @@ public class Recursividad {
         return 0;
     }
     //-----------------------------------------
-    
+
     //----calcular sumatoria de factorial de 1 hasta n------//
-    private static long sumatorifact(int n,int i,long fact){
-        if(i<=n){
-             return fact+sumatorifact(n,i+1,fact*(i+1));
-        }else{
+    private static long sumatorifact(int n, int i, long fact) {
+        if (i <= n) {
+            return fact + sumatorifact(n, i + 1, fact * (i + 1));
+        } else {
             return 0;
         }
-        
+
     }
-    public static long sumatoriafact(int n){
-        return sumatorifact(n,1,1);
+
+    public static long sumatoriafact(int n) {
+        return sumatorifact(n, 1, 1);
     }
-    
-   //---------------------------------------
-    
-   //--------secuencia fibonacci------------
-    public static int fibonacci(int n){
-        if(n==0 || n==1){
+
+    //--------secuencia fibonacci------------
+    public static int fibonacci(int n) {
+        if (n == 0 || n == 1) {
             return n;
-        }else{
-            return fibonacci(n-1)+ fibonacci(n-2);
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
         }
     }
-    
+
+    //----------metodo burbuja----------------
+    public static int[] burbuja(int[] vector) {
+        return burbuja(vector, 0, 0, 0);
+    }
+
+    private static int[] burbuja(int[] vector, int i, int aux, int j) {
+        aux = vector[j];
+        if (i < vector.length-1 && vector.length > 1) {
+            if (vector[i] >= aux) {
+                return burbuja(vector, i + 1, aux, j);
+            } else {
+                vector[j] = vector[i];
+                vector[i] = aux;
+                return burbuja(vector, i, aux, j + 1);
+
+            }
+        }
+        return vector;
+    }
+
+    //----------coinciden con el indice-------------
+    public static int coincide(int vector[]) {
+        return coincide(vector, 0);
+    }
+
+    private static int coincide(int vector[], int i) {
+        if (i < vector.length-1) {
+            if (vector[i] == i) {
+                return vector[i];
+            } else { 
+                return coincide(vector, i + 1);
+            }
+        }
+        return vector[i];
+    }
+
 }
